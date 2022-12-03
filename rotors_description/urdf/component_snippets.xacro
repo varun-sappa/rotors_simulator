@@ -623,7 +623,7 @@
 
   <!-- Macro to add a depth camera on the VI-sensor. -->
   <xacro:macro name="vi_sensor_depth_macro"
-    params="namespace parent_link camera_suffix frame_rate max_range *origin">
+    params="namespace parent_link camera_suffix frame_rate max_range enable_depth_camera_visual *geometry *origin">
     <link name="${namespace}/camera_${camera_suffix}_link">
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -631,6 +631,15 @@
           <cylinder length="0.01" radius="0.007" />
         </geometry>
       </collision>
+      <xacro:if value="${enable_depth_camera_visual}">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+          <geometry>
+            <xacro:insert_block name="geometry" />
+          </geometry>
+          <material name="red" />
+        </visual>
+      </xacro:if>
       <inertial>
         <mass value="1e-5" />
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -692,7 +701,7 @@
   </xacro:macro>
 
   <!-- VI-Sensor Macro -->
-  <xacro:macro name="vi_sensor_macro" params="namespace parent_link enable_cameras enable_depth enable_ground_truth *origin">
+  <xacro:macro name="vi_sensor_macro" params="namespace parent_link enable_cameras enable_depth enable_depth_camera_visual enable_ground_truth *origin">
     <!-- Vi Sensor Link -->
     <link name="${namespace}/vi_sensor_link">
       <collision>
@@ -726,7 +735,7 @@
       <xacro:vi_sensor_stereo_camera_macro
         namespace="${namespace}" parent_link="${namespace}/vi_sensor_link"
         frame_rate="30.0" origin_offset_x="0.015" baseline_y="${0.055*2}"
-        origin_offset_z="0.0065" max_range="30.0">
+        origin_offset_z="0.0065" max_range="30.0" enable_depth_camera_visual="${enable_depth_camera_visual}">
       </xacro:vi_sensor_stereo_camera_macro>
     </xacro:if>
 

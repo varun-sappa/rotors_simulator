@@ -198,7 +198,11 @@
     <xacro:insert_block name="rotor_inertia" />
   </xacro:vertical_rotor>
 
-  <xacro:camera_macro
+  <!--  -->
+  <!-- CUSTOM EDITS BELOW -->
+  <!--  -->
+
+  <!-- <xacro:camera_macro
     namespace="${namespace}"
     parent_link="${namespace}/base_link"
     camera_suffix="nadir"
@@ -213,6 +217,14 @@
     noise_stddev="0.007"
     enable_visual="true">
     <box size="0.05 0.05 0.02" />
-    <origin xyz="0 0 ${-arm_length/4}" rpy="0 ${pi/4} 0" />
-  </xacro:camera_macro>
+    <origin xyz="0 0 ${-arm_length/4}" rpy="0 ${pi/2} 0" />
+  </xacro:camera_macro> -->
+  
+  <xacro:vi_sensor_depth_macro
+        namespace="${namespace}" parent_link="${namespace}/base_link"
+        camera_suffix="depth" frame_rate="30.0" max_range="10.0" enable_depth_camera_visual="true">
+        <box size="0.05 0.05 0.02" />
+        <origin xyz="0 0 ${-arm_length/4}" rpy="0 ${pi/2} 0" />
+  </xacro:vi_sensor_depth_macro>
+  
 </robot>

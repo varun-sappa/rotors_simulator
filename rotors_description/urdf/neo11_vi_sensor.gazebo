@@ -30,7 +30,8 @@
       parent_link="${namespace}/base_link"
       enable_cameras="true"
       enable_depth="true"
-      enable_ground_truth="true">
+      enable_ground_truth="true"
+      enable_depth_camera_visual="false">
     <origin xyz="0.133 0.0 -0.0565" rpy="0.0 ${20.0/180.0*pi} 0.0" />
   </xacro:vi_sensor_macro>
   <!-- Mount up-looking camera on top of Neo. -->
@@ -38,7 +39,8 @@
       namespace="${namespace}/vi_sensor"
       parent_link="${namespace}/base_link"
       camera_suffix="2"
-      frame_rate="20">
+      frame_rate="20"
+      enable_depth_camera_visual="false">
     <origin xyz="0.019 0.0 0.073" rpy="0.0 ${-pi/2} 0.0" />
   </xacro:vi_sensor_camera_macro>
   <!-- Mount down-looking camera at the bottom of Neo. -->
@@ -46,7 +48,8 @@
       namespace="${namespace}/vi_sensor"
       parent_link="${namespace}/base_link"
       camera_suffix="3"
-      frame_rate="20">
+      frame_rate="20"
+      enable_depth_camera_visual="false">
     <origin xyz="0.019 0.0 -0.045" rpy="0.0 ${pi/2} 0.0" />
   </xacro:vi_sensor_camera_macro>
 </robot>
