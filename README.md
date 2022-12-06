@@ -32,6 +32,14 @@ This is the fork of the original repo, we (Team Aerial Robotics IITK) have been 
  wstool update
  ```
 
+- Now install rotorS with dependencies
+
+```bash
+cd ~/catkin_ws/src
+git clone git@github.com:ethz-asl/rotors_simulator.git
+git clone git@github.com:ethz-asl/mav_comm.git
+```
+
 - Build your workspace with `python_catkin_tools` (therefore you need `python_catkin_tools`)
 
 ```bash
