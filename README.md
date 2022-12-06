@@ -22,9 +22,9 @@ This is the fork of the original repo, we (Team Aerial Robotics IITK) have been 
 - If you don't have ROS workspace yet you can do so by
 
  ```bash
- mkdir -p ~/catkin_ws/src
- cd ~/catkin_ws/src
- catkin_init_workspace  # initialize your catkin workspace
+ mkdir -p ./rotors_ariitk_ws/src
+ cd ./rotors_ariitk_ws/src
+ catkin_init  # initialize your catkin workspace
  wstool init
  wget https://raw.githubusercontent.com/AerialRobotics-IITK/rotors_simulator/base_2022/rotors_hil.rosinstall
  wstool merge rotors_hil.rosinstall
@@ -34,15 +34,8 @@ This is the fork of the original repo, we (Team Aerial Robotics IITK) have been 
 - Build your workspace with `python_catkin_tools` (therefore you need `python_catkin_tools`)
 
 ```bash
-cd ~/rotors_ws/
 catkin build
-```
-
-- Add sourcing to your `.bashrc` file
-
-```bash
-echo "source ~/rotors_ws/devel/setup.bash" >> ~/.bashrc
-source ~/.bashrc
+source ../devel/setup.bash # source this everytime you need it
 ```
 
 ## Basic Usage
