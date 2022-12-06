@@ -23,8 +23,9 @@ This is the fork of the original repo, we (Team Aerial Robotics IITK) have been 
 
  ```bash
  mkdir -p ./rotors_ariitk_ws/src
- cd ./rotors_ariitk_ws/src
+ cd ./rotors_ariitk_ws/
  catkin init  # initialize your catkin workspace
+ cd src/
  wstool init
  wget https://raw.githubusercontent.com/AerialRobotics-IITK/rotors_simulator/base_2022/rotors_hil.rosinstall
  wstool merge rotors_hil.rosinstall
