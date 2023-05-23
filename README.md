@@ -37,7 +37,9 @@ This is the fork of the original repo, we (Team Aerial Robotics IITK) have been 
 ```bash
 # assuming you're still at your workspace src/
 git clone git@github.com:AerialRobotics-IITK/rotors_simulator.git
-git clone git@github.com:ethz-asl/mav_comm.git
+rm -r mavlink
+git clone https://github.com/mavlink/mavlink.git --recursive
+python3 -m pip install -r mavlink/pymavlink/requirements.txt
 ```
 
 - Build your workspace with `python_catkin_tools` (therefore you need `python_catkin_tools`)
